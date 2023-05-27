@@ -19,7 +19,7 @@ $promocion = $sentencia_promocion->fetchAll(PDO::FETCH_OBJ);
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
-                    Ingresar datos para Promocion : <br><?php echo $persona->nombres.' '.$persona->apellido_paterno.' '.$persona->apellido_materno; ?>
+                    Promocion para el cliente <?php echo $persona->nombres.' '.$persona->apellido_paterno.' '.$persona->apellido_materno; ?>
                 </div>
                 <form class="p-4" method="POST" action="registrarPromocion.php">
                     <div class="mb-3">
@@ -34,9 +34,9 @@ $promocion = $sentencia_promocion->fetchAll(PDO::FETCH_OBJ);
                     <input type="hidden" name="codigo" value="<?php echo $persona->id; ?>"><P></P>
                         <input type="submit" class="btn btn-primary" value="Registrar">
                     </div>
-                    <div class="col-sm-3 d-grid">
+                    <div class="d-grid">
                     <input type="hidden" name="codigo" value="<?php echo $persona->id; ?>"><P></P>
-                        <a class="btn btn-secondary" href="inicio.php" role="button">Cancel</a>
+                        <a class="btn btn-light" href="inicio.php" role="button">Cancelar</a>
                         </div>
                 </form>
             </div>
@@ -46,38 +46,36 @@ $promocion = $sentencia_promocion->fetchAll(PDO::FETCH_OBJ);
                 <div class="card-header">
                     Lista de Promociones
                 </div>
-                <div class="col-12">
+                <div class="p-4">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Promocion</th>
-                                <th scope="col">Duracion</th>
-                                <th scope="col" colspan="3">Opciones</th>
+                                <th scope="col" colspan="4">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($promocion as $dato) {
                             ?>
-                                <tr>
+                                <tr class="table">
                                     <td scope="row"><?php echo $dato->id; ?></td>
-                                    <td><?php echo $dato->promocion; ?></td>
-                                    <td><?php echo $dato->duracion; ?></td>
+                                    <td>La promocion <?php echo $dato->promocion; ?> dura <?php echo $dato->duracion; ?></td>
                                     <td><a class="text-primary" href="enviarMensaje.php?codigo=<?php echo $dato->id; ?>">
-                                            <div class="d-grid"><input type="submit" class="btn btn-primary btn-sm" value="Mensaje"></div>
+                                            <div class="d-grid"><input type="button" class="btn btn-primary btn-sm" value="Mensaje"></div>
                                         </a>
                                     </td>
                                     <td><a class="text-primary" href="enviarImagen.php?codigo=<?php echo $dato->id; ?>">
-                                            <div class="d-grid"><input type="submit" class="btn btn-primary btn-sm" value="Imagen Promocional"></div>
+                                            <div class="d-grid"><input type="button" class="btn btn-primary btn-sm" value="Imagen Promocional"></div>
                                         </a>
                                     </td>
                                     <td><a class="text-primary" href="enviarArchivo.php?codigo=<?php echo $dato->id; ?>">
-                                            <div class="d-grid"><input type="submit" class="btn btn-primary btn-sm" value="Catalogo"></div>
+                                            <div class="d-grid"><input type="button" class="btn btn-primary btn-sm" value="Catalogo"></div>
                                         </a>
                                     </td>
                                     <td><a class="text-primary" href="enviarUbicacion.php?codigo=<?php echo $dato->id; ?>">
-                                            <div class="d-grid"><input type="submit" class="btn btn-primary btn-sm" value="Ubicacion Tienda"></div>
+                                            <div class="d-grid"><input type="button" class="btn btn-primary btn-sm" value="Ubicacion Tienda"></div>
                                         </a>
                                     </td>
                                 </tr>

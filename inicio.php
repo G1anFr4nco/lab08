@@ -35,8 +35,6 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="inicio.php">Registro</a></li>
-                            <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Promociones</a></li>
                         </ul>
                     </div>
                 </div>
@@ -66,23 +64,21 @@
 
                                         <div class="container mt-5">
                                         <div class="row justify-content-center">
-                                            <div class="col-md-7">
+                                            <div class="col-md-14">
                                                 
                                                 <div class="card">
                                                     <div class="card-header">
                                                         Lista de personas
                                                     </div>
                                                     <div class="p-4">
-                                                        <table class="table align-middle">
+                                                        <table class="table">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">#</th>
-                                                                    <th scope="col">Nombres</th>
-                                                                    <th scope="col">Apellido Paterno</th>
-                                                                    <th scope="col">Apellido Materno</th>
+                                                                    <th scope="col" colspan="3">Cliente</th>
                                                                     <th scope="col">F.Nacimiento</th>
                                                                     <th scope="col">Celular</th>
-                                                                    <th scope="col" colspan="2">Opciones</th>
+                                                                    <th scope="col" colspan="3">Opciones</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -93,9 +89,7 @@
 
                                                                 <tr>
                                                                     <td scope="row"><?php echo $dato->id; ?></td> 
-                                                                    <td><?php echo $dato->nombres; ?></td>
-                                                                    <td><?php echo $dato->apellido_paterno; ?></td>
-                                                                    <td><?php echo $dato->apellido_materno; ?></td>
+                                                                    <td colspan="3"><?php echo $dato->nombres." ". $dato->apellido_paterno." ".$dato->apellido_materno;?></td>
                                                                     <td><?php echo $dato->fecha_nacimiento; ?></td>
                                                                     <td><?php echo $dato->celular; ?></td>
                                                                     <td><a class="text-success" href="editar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
@@ -115,75 +109,43 @@
                                             </div>     
                                         </div>
                                     </div>
+                                    <br>
                                         <form method="post" action = "crear.php">
                                             <div class="row mb-3 d-flex justify-content-center">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-14">
                                                     <input type="text" placeholder="Nombre" class="form-control" name="txtNombres"">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3 d-flex justify-content-center">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-14">
                                                     <input type="text" placeholder="Apellido Paterno" class="form-control" name="txtApPaterno">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3 d-flex justify-content-center">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-14">
                                                     <input type="text" placeholder="Apellido Materno" class="form-control" name="txtApMaterno" >
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3 d-flex justify-content-center">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-14">
                                                     <input type="date" class="form-control" name="txtFechaNacimiento">
                                                 </div>
                                             </div>
 
                                             <div class="row mb-3 d-flex justify-content-center">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-14">
                                                     <input type="number" placeholder="Celular" class="form-control" name="txtCelular">
                                                 </div>
                                             </div>          
 
                                             <div class="d-grid">
                                                 <input type="hidden" name="oculto" value="1">
-                                                <input type="submit" class="btn btn-primary" value="Registrar">
+                                                <input type="submit" class="btn btn-primary col-sm-14" value="Registrar">
                                             </div>
                                         </form>
-
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Clientes normales</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SEO/SEM Marketing</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Statistical Analysis</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Web Development</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Network Security</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Adobe Software Suite</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">User Interface Design</div></div>
-                                        </div>
-                                    </div>
-                                    <!-- Languages list-->
-                                    <div class="mb-0">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Clientes premium</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </section>

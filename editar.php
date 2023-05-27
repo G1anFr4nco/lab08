@@ -52,6 +52,10 @@
                         <input type="hidden" name="codigo" value="<?php echo $persona->id; ?>">
                         <input type="submit" class="btn btn-primary" value="Editar">
                     </div>
+                    <div class="d-grid">
+                    <input type="hidden" name="codigo" value="<?php echo $persona->id; ?>"><P></P>
+                        <a class="btn btn-light" href="inicio.php" role="button">Cancelar</a>
+                        </div>
                 </form>
             </div>
         </div>
